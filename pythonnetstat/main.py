@@ -26,7 +26,6 @@ def insert_program(d={},e=[]):
     
     x = PrettyTable()
     x.field_names = ['protocol','local_ip:port','remote_ip:port','status','PID','program_name']
-    
     final_list = []
 
     for i in range(len(e)):
@@ -36,6 +35,11 @@ def insert_program(d={},e=[]):
                 c.append(d[key])
             else:pass
         c.pop(0)
+        for i in range(6):
+            if len(c) != 6:
+                c.append(' ')
+            else:
+                break
         x.add_row(c)
         # final_list.append(' '.join(c))
     print(x)
